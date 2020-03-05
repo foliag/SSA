@@ -46,10 +46,10 @@ def gen_beta(n,p,q,beta_type = None):
                 beta[:,i] = 0.02*n*np.sin(20/n*np.pi*u)+5
             for i in range(k,2*k):
                 u = beta_begin[i] + np.linspace(0,n-1,n)/10
-                beta[:,i] = 0.02*n*np.cos(16/n*np.pi*u+0.5)+5
+                beta[:,i] = 0.02*n*np.cos(20/n*np.pi*u+0.5)+5
             for i in range(2*k,3*k):
                 u = beta_begin[i] + np.linspace(0,n-1,n)/10
-                beta[:,i] = 0.02*n*np.sin(15/n*np.pi*u-0.8)+5
+                beta[:,i] = 0.02*n*np.sin(20/n*np.pi*u-0.8)+5
             for i in range(3*k,q):
                 u = beta_begin[i] + np.linspace(0,n-1,n)/10
                 beta[:,i] = 0.02*n*np.sin(20/n*np.pi*u)+5                
@@ -59,19 +59,19 @@ def gen_beta(n,p,q,beta_type = None):
             for i in range(k):
                 u = beta_begin[i] + np.linspace(0,n-1,n)/100
                 beta_exp3 = np.array(list(map(lambda x: math.exp(x), -1*u)))
-                beta[:,i] = 10*beta_exp3+5
+                beta[:,i] = 3*beta_exp3+5
             for i in range(k,2*k):
                 u = beta_begin[i] + np.linspace(0,n-1,n)/100
                 beta_exp3 = np.array(list(map(lambda x: math.exp(x), -1.3*u)))
-                beta[:,i] = 10*beta_exp3+5
+                beta[:,i] = 3*beta_exp3+5
             for i in range(2*k,3*k):
                 u = beta_begin[i] + np.linspace(0,n-1,n)/100
                 beta_exp3 = np.array(list(map(lambda x: math.exp(x), -1.8*u)))
-                beta[:,i] = 10*beta_exp3+5
+                beta[:,i] = 3*beta_exp3+5
             for i in range(3*k,q):
                 u = beta_begin[i] + np.linspace(0,n-1,n)/100
                 beta_exp3 = np.array(list(map(lambda x: math.exp(x), -2*u)))
-                beta[:,i] = 10*beta_exp3+5
+                beta[:,i] = 3*beta_exp3+5
 
         if t == 'ln':
             beta_begin = np.random.uniform(0.3,0.7,q)
@@ -113,18 +113,18 @@ def gen_beta(n,p,q,beta_type = None):
             for i in range(k):
                 u[i,:] = beta_begin[i] + np.linspace(0,n-1,n)/10
             beta[:,0] = 0.02*n*np.sin(20/n*np.pi*u[0,:])+5
-            beta[:,1] = 0.02*n*np.sin(15/n*np.pi*u[1,:]-0.8)+5
-            beta[:,2] = 0.02*n*np.cos(16/n*np.pi*u[2,:]+0.5)+5
-            beta[:,3] = 0.02*n*np.sin(15/n*np.pi*u[3,:]-0.8)+5
+            beta[:,1] = 0.02*n*np.sin(20/n*np.pi*u[1,:]-0.8)+5
+            beta[:,2] = 0.02*n*np.cos(20/n*np.pi*u[2,:]+0.5)+5
+            beta[:,3] = 0.02*n*np.sin(20/n*np.pi*u[3,:]-0.8)+5
             beta[:,4] = 0.02*n*np.sin(20/n*np.pi*u[4,:])+5
             if q == 40:
                 beta_begin = np.random.uniform(0,0.5,k)
                 for i in range(k):
                     u[i,:] = beta_begin[i] + np.linspace(0,n-1,n)/10
                 beta[:,20] = 0.02*n*np.sin(20/n*np.pi*u[0,:])+5
-                beta[:,21] = 0.02*n*np.sin(15/n*np.pi*u[1,:]-0.8)+5
-                beta[:,22] = 0.02*n*np.cos(16/n*np.pi*u[2,:]+0.5)+5
-                beta[:,23] = 0.02*n*np.sin(15/n*np.pi*u[3,:]-0.8)+5
+                beta[:,21] = 0.02*n*np.sin(20/n*np.pi*u[1,:]-0.8)+5
+                beta[:,22] = 0.02*n*np.cos(20/n*np.pi*u[2,:]+0.5)+5
+                beta[:,23] = 0.02*n*np.sin(20/n*np.pi*u[3,:]-0.8)+5
                 beta[:,24] = 0.02*n*np.sin(20/n*np.pi*u[4,:])+5
 
             beta_begin = np.random.uniform(0,0.4,k)
@@ -132,30 +132,30 @@ def gen_beta(n,p,q,beta_type = None):
                 u[i,:] = beta_begin[i] + np.linspace(0,n-1,n)/100
                 
             beta_exp3 = np.array(list(map(lambda x: math.exp(x), -1.3*u[0,:])))
-            beta[:,5] = 10*beta_exp3+5
-            beta_exp3 = np.array(list(map(lambda x: math.exp(x), -1.3*u[1,:])))
-            beta[:,6] = 10*beta_exp3+5
-            beta_exp3 = np.array(list(map(lambda x: math.exp(x), -1.3*u[2,:])))
-            beta[:,7] = 10*beta_exp3+5
+            beta[:,5] = 3*beta_exp3+5
+            beta_exp3 = np.array(list(map(lambda x: math.exp(x), -1.8*u[1,:])))
+            beta[:,6] = 3*beta_exp3+5
+            beta_exp3 = np.array(list(map(lambda x: math.exp(x), -2*u[2,:])))
+            beta[:,7] = 3*beta_exp3+5
             beta_exp3 = np.array(list(map(lambda x: math.exp(x), -1.5*u[3,:])))
-            beta[:,8] = 10*beta_exp3+5
+            beta[:,8] = 3*beta_exp3+5
             beta_exp3 = np.array(list(map(lambda x: math.exp(x), -1.3*u[4,:])))
-            beta[:,9] = 10*beta_exp3+5
+            beta[:,9] = 3*beta_exp3+5
             if q == 40:
                 beta_begin = np.random.uniform(0,0.4,k)
                 for i in range(k):
                     u[i,:] = beta_begin[i] + np.linspace(0,n-1,n)/100
                     
                 beta_exp3 = np.array(list(map(lambda x: math.exp(x), -1.3*u[0,:])))
-                beta[:,25] = 10*beta_exp3+5
+                beta[:,25] = 3*beta_exp3+5
                 beta_exp3 = np.array(list(map(lambda x: math.exp(x), -1.3*u[1,:])))
-                beta[:,26] = 10*beta_exp3+5
+                beta[:,26] = 3*beta_exp3+5
                 beta_exp3 = np.array(list(map(lambda x: math.exp(x), -1.3*u[2,:])))
-                beta[:,27] = 10*beta_exp3+5
+                beta[:,27] = 3*beta_exp3+5
                 beta_exp3 = np.array(list(map(lambda x: math.exp(x), -1.5*u[3,:])))
-                beta[:,28] = 10*beta_exp3+5
+                beta[:,28] = 3*beta_exp3+5
                 beta_exp3 = np.array(list(map(lambda x: math.exp(x), -1.3*u[4,:])))
-                beta[:,29] = 10*beta_exp3+5
+                beta[:,29] = 3*beta_exp3+5
     
                 
 
@@ -252,9 +252,9 @@ def gen_beta(n,p,q,beta_type = None):
                 for i in range(28,30):
                     u[i,:] = beta_begin[i] + np.linspace(0,n-1,n)/100
                 beta_exp3 = np.array(list(map(lambda x: math.exp(x), -1.5*u[28,:])))
-                beta[:,28] = 10*beta_exp3+5
+                beta[:,28] = 3*beta_exp3+5
                 beta_exp3 = np.array(list(map(lambda x: math.exp(x), -u[29,:])))
-                beta[:,29] = 10*beta_exp3+5
+                beta[:,29] = 3*beta_exp3+5
 
                 
             for i in range(10,13):
@@ -311,40 +311,40 @@ def gen_beta(n,p,q,beta_type = None):
             for i in range(7):
                 u[i,:] = beta_begin[i] + np.linspace(0,n-1,n)/10
             beta[:,0] = 0.02*n*np.sin(20/n*np.pi*u[0,:])+5
-            beta[:,1] = 0.02*n*np.cos(16/n*np.pi*u[1,:]+0.5)+5
-            beta[:,2] = 0.02*n*np.sin(15/n*np.pi*u[2,:]-0.8)+5
-            beta[:,3] = 0.02*n*np.cos(16/n*np.pi*u[3,:]+0.5)+5
+            beta[:,1] = 0.02*n*np.cos(20/n*np.pi*u[1,:]+0.5)+5
+            beta[:,2] = 0.02*n*np.sin(20/n*np.pi*u[2,:]-0.8)+5
+            beta[:,3] = 0.02*n*np.cos(20/n*np.pi*u[3,:]+0.5)+5
             beta[:,4] = 0.02*n*np.sin(20/n*np.pi*u[4,:])+5
-            beta[:,5] = 0.02*n*np.sin(15/n*np.pi*u[5,:]-0.8)+5
-            beta[:,6] = 0.02*n*np.cos(16/n*np.pi*u[6,:]+0.5)+5
+            beta[:,5] = 0.02*n*np.sin(20/n*np.pi*u[5,:]-0.8)+5
+            beta[:,6] = 0.02*n*np.cos(20/n*np.pi*u[6,:]+0.5)+5
             if q == 40:
                 for i in range(20,27):
                     u[i,:] = beta_begin[i] + np.linspace(0,n-1,n)/10
                 beta[:,20] = 0.02*n*np.sin(20/n*np.pi*u[20,:])+5
-                beta[:,21] = 0.02*n*np.cos(16/n*np.pi*u[21,:]+0.5)+5
-                beta[:,22] = 0.02*n*np.sin(15/n*np.pi*u[22,:]-0.8)+5
-                beta[:,23] = 0.02*n*np.cos(16/n*np.pi*u[23,:]+0.5)+5
+                beta[:,21] = 0.02*n*np.cos(20/n*np.pi*u[21,:]+0.5)+5
+                beta[:,22] = 0.02*n*np.sin(20/n*np.pi*u[22,:]-0.8)+5
+                beta[:,23] = 0.02*n*np.cos(20/n*np.pi*u[23,:]+0.5)+5
                 beta[:,24] = 0.02*n*np.sin(20/n*np.pi*u[24,:])+5
-                beta[:,25] = 0.02*n*np.sin(15/n*np.pi*u[25,:]-0.8)+5
-                beta[:,26] = 0.02*n*np.cos(16/n*np.pi*u[26,:]+0.5)+5
+                beta[:,25] = 0.02*n*np.sin(20/n*np.pi*u[25,:]-0.8)+5
+                beta[:,26] = 0.02*n*np.cos(20/n*np.pi*u[26,:]+0.5)+5
 
             for i in range(7,10):
                 u[i,:] = beta_begin[i] + np.linspace(0,n-1,n)/100
             beta_exp3 = np.array(list(map(lambda x: math.exp(x), -2*u[7,:])))
-            beta[:,7] = 10*beta_exp3+5
+            beta[:,7] = 3*beta_exp3+5
             beta_exp3 = np.array(list(map(lambda x: math.exp(x), -1.5*u[8,:])))
-            beta[:,8] = 10*beta_exp3+5
+            beta[:,8] = 3*beta_exp3+5
             beta_exp3 = np.array(list(map(lambda x: math.exp(x), -u[9,:])))
-            beta[:,9] = 10*beta_exp3+5
+            beta[:,9] = 3*beta_exp3+5
             if q == 40:
                 for i in range(27,30):
                     u[i,:] = beta_begin[i] + np.linspace(0,n-1,n)/100
                 beta_exp3 = np.array(list(map(lambda x: math.exp(x), -2*u[28,:])))
-                beta[:,27] = 10*beta_exp3+5
+                beta[:,27] = 3*beta_exp3+5
                 beta_exp3 = np.array(list(map(lambda x: math.exp(x), -1.5*u[27,:])))
-                beta[:,28] = 10*beta_exp3+5
+                beta[:,28] = 3*beta_exp3+5
                 beta_exp3 = np.array(list(map(lambda x: math.exp(x), -u[29,:])))
-                beta[:,29] = 10*beta_exp3+5
+                beta[:,29] = 3*beta_exp3+5
 
             
             for i in range(10,14):
