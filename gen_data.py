@@ -24,6 +24,7 @@ def gen_beta(n,p,q,beta_type = None):
     then randomly use their sin/exp/ln/quadratic
     '''
     
+    
     #np.random.seed(300)
 
     #initialize true beta
