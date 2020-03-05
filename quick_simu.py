@@ -151,6 +151,6 @@ comp_beta = np.zeros((n,p))
 comp_beta[:,sig_index] = res_sig
 rmse = norm2(comp_beta-beta)/np.sqrt(p)
 rpe = norm2(Y-(X*comp_beta).sum(axis = 1))/np.sqrt(n)
-tp = sum(sig_index < sum(np.apply_along_axis(norm2, 0, res)!=0))
+tp = sum(sig_index < sum(np.apply_along_axis(norm2, 0, beta)!=0))
 fp = len(sig_index) - tp
 
