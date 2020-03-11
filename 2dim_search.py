@@ -17,7 +17,6 @@ from sklearn.metrics import confusion_matrix
 
 def norm2(x):
     return np.sqrt((x**2).sum())
-
   
 
 class SmoothingSubgroupAnalysis():
