@@ -419,8 +419,8 @@ def simuGenerator(n,p,rho,beta):
 
 
 
-beta, beta_begin = gen_beta(200,500,20,'sin')
-Y,X = simuGenerator(200,500,0.3)
+#beta, beta_begin = gen_beta(200,500,20,'sin')
+#Y,X = simuGenerator(200,500,0.3)
 
 #np.savetxt('beta.csv',beta,delimiter=',',fmt='%10.5f')
 #np.savetxt('X.csv',X,delimiter=',',fmt='%10.5f')
