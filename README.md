@@ -8,6 +8,7 @@ In this code, we consider a scenario where the effects of covariates change smoo
 
 
 # Demo
+```
 tolerance = 1e-3
 
 import sys
@@ -40,3 +41,4 @@ rmse = norm2(comp_beta-beta)/np.sqrt(p)
 rpe = norm2(Y-(X*comp_beta).sum(axis = 1))/np.sqrt(n)
 tp = sum(sig_index < sum(np.apply_along_axis(norm2, 0, beta)!=0))
 fp = len(sig_index) - tp
+```
